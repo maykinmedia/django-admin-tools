@@ -11,16 +11,6 @@
     ];
 
 </script>
-<!--[if IE 6]>
-<script type="text/javascript">
-jQuery(document).ready(function() {
-    jQuery('#navigation-menu').children('li').hover(
-        function() { jQuery(this).addClass('over'); },
-        function() { jQuery(this).removeClass('over'); }
-    );
-});
-</script>
-<![endif]-->
 
 <ul id="navigation-menu">
     {% for item in menu.children %}{% admin_tools_render_menu_item item forloop.counter %}{% endfor %}
