@@ -1,32 +1,15 @@
-{% load i18n staticfiles admin_tools_dashboard_tags %}
+{% load i18n static admin_tools_dashboard_tags %}
 
-{% block dashboard_scripts %}
-<script type="text/javascript" src="{% static "admin_tools/js/utils.js" %}"></script>
-
-<script type="text/javascript" charset="utf-8">
-    // Load js files syncronously and conditionally
-
-    var js_files = [
-        {% for js in dashboard.Media.js %},
-        {
-            src : '{% static js %}',
-            test: function() { return true; }
-        }{% endfor %}
-    ];
-
-    loadScripts(js_files, function() {});
-</script>
-
-{% endblock %}
 {% block dashboard_title %}
-{% if dashboard.title %}
-<h1 class="dashboard-title">{{ dashboard.title|capfirst }}</h1>
-{% endif %}
+    {% if dashboard.title %}
+        <h1 class="dashboard-title">{{ dashboard.title|capfirst }}</h1>
+    {% endif %}
 {% endblock %}
 
 {% block dashboard_container %}
-<div id="{{ dashboard.get_id }}" class="dashboard-container">
-    {% for module in dashboard.children %}
-{% admin_tools_render_dashboard_module module %}{% endfor %}
-</div>
+    <div id="{{ dashboard.get_id }}" class="dashboard-container">
+        {% for module in dashboard.children %}
+            {% admin_tools_render_dashboard_module module %}
+        {% endfor %}
+    </div>
 {% endblock %}

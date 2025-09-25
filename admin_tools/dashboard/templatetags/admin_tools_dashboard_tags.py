@@ -10,11 +10,8 @@ To load the dashboard tags: ``{% load admin_tools_dashboard_tags %}``.
 import math
 
 from django import template
-from django.db import IntegrityError
-try:
-    from django.urls import reverse
-except ImportError:
-    from django.core.urlresolvers import reverse
+from django.db import IntegrityError, transaction
+from django.urls import reverse
 
 from admin_tools.utils import get_admin_site_name
 from admin_tools.dashboard.utils import get_dashboard
@@ -26,6 +23,7 @@ tag_func = register.inclusion_tag(
 )
 
 
+@transaction.atomic
 def admin_tools_render_dashboard(context, location='index', dashboard=None):
     """
     Template tag that renders the dashboard, it takes two optional arguments:

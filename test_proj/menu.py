@@ -1,8 +1,5 @@
-try:
-    from django.urls import reverse
-except ImportError:
-    from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.urls import reverse
+from django.utils.translation import gettext_lazy as _
 from admin_tools.menu import items, Menu
 
 # to activate your custom menu add the following to your settings.py:
