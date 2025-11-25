@@ -7,5 +7,5 @@ administration interface, it includes:
  * tools to make admin theming easier.
 """
 
-VERSION = '0.8.1'
-default_app_config = 'admin_tools.apps.AdminToolsConfig'
+VERSION = "0.8.1+maykin.2"
+default_app_config = "admin_tools.apps.AdminToolsConfig"
