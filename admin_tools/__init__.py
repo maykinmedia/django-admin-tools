@@ -7,11 +7,12 @@ administration interface, it includes:
  * tools to make admin theming easier.
 """
 
-VERSION = '0.9.3'
+VERSION = "0.9.3+maykin.1"
 
 try:
     import django
+
     if django.VERSION < (3, 2):
-        default_app_config = 'admin_tools.apps.AdminToolsConfig'
+        default_app_config = "admin_tools.apps.AdminToolsConfig"
 except ImportError:
     pass
